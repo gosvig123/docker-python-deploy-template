@@ -1,0 +1,23 @@
+{
+  "name": "Python 3",
+  "image": "mcr.microsoft.com/devcontainers/python:0-3.8",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "workbench.panel.defaultLocation": "right",
+        "python.defaultInterpreterPath": "/workspaces/python-chess/venv/bin/python",
+        "terminal.integrated.shellArgs.linux": [
+          "-c",
+          "if [ -f \"/workspaces/python-chess/venv/bin/activate\" ]; then source \"/workspaces/python-chess/venv/bin/activate\"; fi; exec bash"
+        ]
+      },
+      "extensions": [
+        "streetsidesoftware.code-spell-checker",
+        "codeium.codeium",
+        "ms-python.python"
+      ]
+    }
+  },
+  "forwardPorts": [9000],
+  "postCreateCommand": "python -m venv venv && . venv/bin/activate && pip install -r requirements.txt"
+}
