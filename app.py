@@ -29,7 +29,6 @@ def handle_game(client, game_id):
     stream = client.board.stream_game_state(game_id)
     for event in stream:
         if event['type'] == 'gameFull':
-            print(f"Game {game_id} started.")
         elif event['type'] == 'gameState':
             is_my_turn = event['moves'].count(' ') % 2 == 0  # Adjust based on player color
             if is_my_turn:
